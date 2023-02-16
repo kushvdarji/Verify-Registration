@@ -164,7 +164,7 @@ function Register() {
               mobile1.length < 10 ||
               pass.length < 4 ||
               pass.length > 10 ||
-              email1.length < 8
+              email1.length < 10
             }
           >
             Sign Up

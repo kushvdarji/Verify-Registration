@@ -55,12 +55,12 @@ function Update() {
   };
 
   const handleOtp = () => {
-    Axios.post("http://localhost:7000/otp", {});
+    Axios.post("http://localhost:7000/otp", {email:email});
     setHidden(!hidden);
   };
   const handleVerifyOtp = () => {
     Axios.post("http://localhost:7000/otpverify", {
-      otp: otp2,
+      otp: otp2,email: email
     }).then((response) => {
       console.log(response);
       if (response.data.success === false) {

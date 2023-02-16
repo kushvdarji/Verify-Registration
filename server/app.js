@@ -115,7 +115,8 @@ app.get("/get", (req, res) => {
 
 
   app.post("/otp", (req, res) => {
-    
+      console.log(req.body.email);
+    const email = req.body.email;
     var otp = Math.floor(1000 + Math.random() * 9000);
 
     db.query(
@@ -133,7 +134,7 @@ app.get("/get", (req, res) => {
 
         var mailOptions = {
           from: "kushvdarji@gmail.com",
-          to: "kushvdarji@gmail.com",
+          to: email,
           subject: "For OTP",
           text:
             "Your OTP for verification is : " +
@@ -153,7 +154,7 @@ app.get("/get", (req, res) => {
     );
   });
   app.post("/otpverify", (req, res) => {
-
+  
       const otp = req.body.otp;
       db.query(
         "SELECT * FROM `otp` WHERE otp=?",
